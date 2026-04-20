@@ -1,0 +1,3 @@
+[submodule "src/bash"]
+	path = src/bash
+	url = git@github.com:value-added-korea/va-thv-srv-bash-cmd-scripts.git
