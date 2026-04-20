@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# TODO: Replace la-toolhive-thv-ui with your actual Debian package name.
+APP_PKG = la-toolhive-thv-ui
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+
+	# Icons → XDG hicolor theme (picked up by GNOME, Xfce, KDE automatically)
+	find src/icons/ -maxdepth 1 -name "*.svg" -exec install -Dm644 {} \
+		debian/$(APP_PKG)/usr/share/icons/hicolor/scalable/apps/ \;
+	find src/icons/ -maxdepth 1 -name "*.png" -exec install -Dm644 {} \
+		debian/$(APP_PKG)/usr/share/icons/hicolor/256x256/apps/ \;
+
+	# Tray-specific icons → app data directory (non-standard names)
+	find src/icons/ -maxdepth 1 -name "tray-*.svg" -o -name "tray-*.png" \
+		-o -name "tray-*.ico" 2>/dev/null | xargs -I{} install -Dm644 {} \
+		debian/$(APP_PKG)/usr/share/$(APP_PKG)/icons/ || true
+
+	# User systemd service unit
+	install -Dm644 src/systemd/*.service \
+		debian/$(APP_PKG)/usr/lib/systemd/user/
+
+	# AppStream component metadata (shown in GNOME Software, KDE Discover)
+	install -Dm644 src/metainfo/*.xml \
+		debian/$(APP_PKG)/usr/share/metainfo/
+
+override_dh_installsystemduser:
+	# Install user service units; do NOT auto-enable them.
+	# Users opt in with: systemctl --user enable --now la-toolhive-thv-ui.service
+	dh_installsystemduser --no-enable --no-start

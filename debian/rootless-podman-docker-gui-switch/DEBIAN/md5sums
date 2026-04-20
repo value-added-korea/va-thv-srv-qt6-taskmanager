@@ -1,0 +1,12 @@
+2e3e1d82605139d9ff5e59df350e917d  usr/share/applications/both-disabled.desktop
+27a26890559c645454ae73be0d3b8fa8  usr/share/applications/both-enabled.desktop
+22f143f227a2deaf4e9d5fe36927a083  usr/share/applications/docker-only.desktop
+bd695a791a9dc7b19647b10100c3287b  usr/share/applications/podman-docker-tray-autostart.desktop
+26a189c74e549c7aa3b3d96dbbf41a98  usr/share/applications/podman-only.desktop
+2aad665f0deb127781691deeabcfe817  usr/share/doc/la-toolhive-thv-ui/changelog.gz
+a920b5141d1f5d7001a994d2c076f9fa  usr/share/va/podman_utils/icons/both_active.ico
+bc0fe73eb459d05d3f7e56d2d6aab946  usr/share/va/podman_utils/icons/docker-active.ico
+5024b914954b846f077fde0807c2e8c7  usr/share/va/podman_utils/icons/none-active.svg
+8e7c1c3773f842770dbb2cd54843589e  usr/share/va/podman_utils/icons/podman-active.svg
+db08a04b01923d200435bbdbec76c476  usr/share/va/podman_utils/la_toolhive_thv_ui.py
+1c5b9492eb6aaa9838163296cea33f73  usr/share/va/podman_utils/la_toolhive_thv_ui_tray.py

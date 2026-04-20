@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=VA Tray Enable Podman & Docker
+Comment=Enable both podman and docker rootless
+Exec=la_toolhive_thv_ui --both-enabled
+Icon=/usr/share/va/podman_utils/icons/both_active.ico
+Terminal=false
+Type=Application
+Categories=System;Utility;

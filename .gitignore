@@ -1,0 +1,29 @@
+# Build artifacts
+dist/
+build_rpm/
+build_cli_deb/usr/
+build_cli_deb/tmp/
+
+# Debian package build bounds
+debian/.debhelper/
+debian/files
+debian/debhelper-build-stamp
+debian/*.substvars
+debian/*.log
+debian/la-toolhive-thv-ui/
+debian/la-toolhive-thv-ui-cli/
+debian/rootless-podman-docker-kde-switch*/
+*.deb
+# Arch package build bounds
+arch/pkg/
+arch/src/
+arch/*.zst
+arch/*.gz
+arch/*.tar.xz
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Folder Icon
+.directory

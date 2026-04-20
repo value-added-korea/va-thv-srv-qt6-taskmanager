@@ -1,0 +1,11 @@
+Package: la-toolhive-thv-ui
+Source: la-toolhive-thv-ui
+Version: 1.0.1
+Architecture: all
+Maintainer: User <user@example.com>
+Installed-Size: 220
+Depends: bash, python3, python3-pyqt6
+Section: utils
+Priority: optional
+Description: VA User Podman Docker Switch
+ A highly integrated graphical and CLI utility explicitly designed for managing user-land backend architectures natively on VA environments (VA User Podman Docker Switch). It provides real-time toggling logic and visual system tray widgets for users running rootless Docker or Podman sockets, preventing port overlap and gracefully saving system memory by disabling unused services automatically without root/sudo.

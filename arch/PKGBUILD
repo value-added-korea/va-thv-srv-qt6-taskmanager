@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------------------
+# Arch Linux PKGBUILD template
+# TODO: Replace all APP_* and OWNER/la-toolhive-thv-ui placeholders.
+# ---------------------------------------------------------------------------
+
+# TODO: Replace la-toolhive-thv-ui with your source package name
+pkgbase=la-toolhive-thv-ui
+pkgname=('la-toolhive-thv-ui' 'la-toolhive-thv-ui-cli')
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="A user UI to start, stop toolhive mcp-optimizer using thv command line"
+arch=('any')
+url="https://github.com/OWNER/la-toolhive-thv-ui"
+license=('MIT')
+backup=('etc/va/la-toolhive-thv-ui/config.ini')
+source=()
+sha256sums=()
+
+# ---------------------------------------------------------------------------
+# GUI package
+# ---------------------------------------------------------------------------
+package_la-toolhive-thv-ui() {
+    pkgdesc="A user UI to start, stop toolhive mcp-optimizer using thv command line"
+    depends=('python' 'python-pyqt6' 'python-dbus')
+    # GNOME tray support requires the AppIndicator extension:
+    # optdepends=('gnome-shell-extension-appindicator: system tray on GNOME')
+    depends+=("la-toolhive-thv-ui-cli=${pkgver}")
+
+    # Application modules
+    install -d "${pkgdir}/usr/share/${pkgbase}"
+    install -Dm755 "${startdir}/../src/app.py"  "${pkgdir}/usr/share/${pkgbase}/app.py"
+    install -Dm755 "${startdir}/../src/tray.py" "${pkgdir}/usr/share/${pkgbase}/tray.py"
+
+    # /usr/bin entry points
+    install -d "${pkgdir}/usr/bin"
+    ln -s "../share/${pkgbase}/app.py"  "${pkgdir}/usr/bin/la-toolhive-thv-ui"
+    ln -s "../share/${pkgbase}/tray.py" "${pkgdir}/usr/bin/la-toolhive-thv-ui-tray"
+
+    # Icons → hicolor theme
+    install -d "${pkgdir}/usr/share/icons/hicolor/scalable/apps"
+    install -d "${pkgdir}/usr/share/icons/hicolor/256x256/apps"
+    find "${startdir}/../src/icons/" -maxdepth 1 -name "*.svg" \
+        -exec install -Dm644 {} "${pkgdir}/usr/share/icons/hicolor/scalable/apps/" \;
+    find "${startdir}/../src/icons/" -maxdepth 1 -name "*.png" \
+        -exec install -Dm644 {} "${pkgdir}/usr/share/icons/hicolor/256x256/apps/" \;
+
+    # Tray-specific icons → app data directory
+    install -d "${pkgdir}/usr/share/${pkgbase}/icons"
+    find "${startdir}/../src/icons/" -maxdepth 1 \
+        \( -name "tray-*.svg" -o -name "tray-*.png" -o -name "tray-*.ico" \) \
+        -exec cp -p {} "${pkgdir}/usr/share/${pkgbase}/icons/" \; 2>/dev/null || true
+
+    # XDG desktop entry
+    install -Dm644 "${startdir}/../src/desktop/app.desktop" \
+        "${pkgdir}/usr/share/applications/la-toolhive-thv-ui.desktop"
+
+    # XDG autostart entry (starts tray on login)
+    install -Dm644 "${startdir}/../src/desktop/app-autostart.desktop" \
+        "${pkgdir}/etc/xdg/autostart/la-toolhive-thv-ui-tray.desktop"
+
+    # User systemd service
+    install -Dm644 "${startdir}/../src/systemd/app.service" \
+        "${pkgdir}/usr/lib/systemd/user/la-toolhive-thv-ui.service"
+
+    # AppStream metainfo
+    install -Dm644 "${startdir}/../src/metainfo/app.metainfo.xml" \
+        "${pkgdir}/usr/share/metainfo/com.vai-int.la-toolhive-thv-ui.metainfo.xml"
+}
+
+# ---------------------------------------------------------------------------
+# CLI package
+# ---------------------------------------------------------------------------
+package_la-toolhive-thv-ui-cli() {
+    pkgdesc="A user UI to start, stop toolhive mcp-optimizer using thv command line (CLI only)"
+    depends=('python')
+
+    install -d "${pkgdir}/usr/share/${pkgbase}"
+    install -Dm755 "${startdir}/../src/app.py" \
+        "${pkgdir}/usr/share/${pkgbase}/app.py"
+
+    install -d "${pkgdir}/usr/bin"
+    ln -s "../share/${pkgbase}/app.py" "${pkgdir}/usr/bin/la-toolhive-thv-ui"
+
+    # Man page
+    install -d "${pkgdir}/usr/share/man/man1"
+    install -m644 "${startdir}/../src/"*.1 "${pkgdir}/usr/share/man/man1/"
+}

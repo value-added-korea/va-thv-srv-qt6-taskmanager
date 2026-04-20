@@ -1,0 +1,11 @@
+Package: la-toolhive-thv-ui-cli
+Source: la-toolhive-thv-ui
+Version: 1.0.1
+Architecture: all
+Maintainer: User <user@example.com>
+Installed-Size: 18
+Depends: bash, python3
+Section: utils
+Priority: optional
+Description: VA User Podman Docker Switch (CLI Only)
+ A command-line only utility for toggling Podman and Docker rootless endpoints, explicitly designed for headless Linux servers lacking GUI capabilities natively.

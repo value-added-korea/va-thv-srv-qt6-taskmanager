@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AppStream component metadata.
+  Used by GNOME Software, KDE Discover, and other software centres.
+  Spec: https://www.freedesktop.org/software/appstream/docs/
+
+  TODO: Replace all APP_* and OWNER/la-toolhive-thv-ui placeholders.
+-->
+<component type="desktop-application">
+
+  <!-- Reverse-domain unique application ID — must match .desktop file basename -->
+  <id>com.vai-int.la-toolhive-thv-ui</id>
+
+  <name>la-toolhive-thv-ui</name>
+  <summary>A user UI to start, stop toolhive mcp-optimizer using thv command line</summary>
+
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+
+  <description>
+    <p>
+      thv command line has more features and options than Toolhive UI, additionally it is more stable.  The package is to give simular administrative functions to the user for thv but using the users UI (KDE, Gnome, XFCE) and has a system tray notification to indicate the state of the users thv service and the running mcp servers.  The package is adress short comings with Linux and Podman Rootless use cases.
+    </p>
+    <!-- TODO: Add more <p> paragraphs and <ul>/<li> feature lists as needed -->
+  </description>
+
+  <!-- Links the metadata to the installed .desktop file -->
+  <launchable type="desktop-id">la-toolhive-thv-ui.desktop</launchable>
+
+  <url type="homepage">https://github.com/OWNER/la-toolhive-thv-ui</url>
+  <url type="bugtracker">https://github.com/OWNER/la-toolhive-thv-ui/issues</url>
+
+  <!-- Screenshots shown in software centres (requires hosted images) -->
+  <!--
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main window</caption>
+      <image>https://raw.githubusercontent.com/OWNER/la-toolhive-thv-ui/main/docs/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  -->
+
+  <releases>
+    <!-- TODO: Add a new <release> entry for each version -->
+    <release version="1.0.0" date="2026-04-13">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+
+  <!-- OARS content rating (required by Flathub and many software centres) -->
+  <!-- Generate at: https://hughsie.github.io/oars/ -->
+  <content_rating type="oars-1.1" />
+
+</component>

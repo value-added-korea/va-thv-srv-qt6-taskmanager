@@ -1,0 +1,43 @@
+Source: la-toolhive-thv-ui
+Section: utils
+Priority: optional
+Maintainer: Gerald Staruiala <value.added.kr@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/OWNER/la-toolhive-thv-ui
+Rules-Requires-Root: no
+
+# ---------------------------------------------------------------------------
+# GUI package — full application with system tray and desktop notifications
+# ---------------------------------------------------------------------------
+Package: la-toolhive-thv-ui
+Architecture: all
+Depends:
+ ${misc:Depends},
+ python3,
+ python3-pyqt6,
+ python3-dbus,
+Recommends:
+ la-toolhive-thv-ui-cli,
+# GNOME users need this extension for the system tray icon to appear:
+Suggests:
+ gnome-shell-extension-appindicator,
+Description: A user UI to start, stop toolhive mcp-optimizer using thv command line
+ thv command line has more features and options than Toolhive UI, additionally it is more stable.  The package is to give simular administrative functions to the user for thv but using the users UI (KDE, Gnome, XFCE) and has a system tray notification to indicate the state of the users thv service and the running mcp servers.  The package is adress short comings with Linux and Podman Rootless use cases.
+ .
+ The system tray component supports GNOME (with AppIndicator extension),
+ Xfce, and KDE. It can be autostarted on login via XDG autostart or a
+ user systemd service.
+
+# ---------------------------------------------------------------------------
+# CLI package — headless / server installs with no GUI dependency
+# ---------------------------------------------------------------------------
+Package: la-toolhive-thv-ui-cli
+Architecture: all
+Depends:
+ ${misc:Depends},
+ python3,
+Description: A user UI to start, stop toolhive mcp-optimizer using thv command line (CLI only)
+ Command-line component of thv command line has more features and options than Toolhive UI, additionally it is more stable.  The package is to give simular administrative functions to the user for thv but using the users UI (KDE, Gnome, XFCE) and has a system tray notification to indicate the state of the users thv service and the running mcp servers.  The package is adress short comings with Linux and Podman Rootless use cases.
+ .
+ Suitable for headless servers and environments without a desktop session.

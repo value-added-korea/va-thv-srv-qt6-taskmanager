@@ -1,0 +1,26 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+
+# TODO: Replace all APP_* placeholders with real values
+Name=la-toolhive-thv-ui
+GenericName=Utility
+Comment=A user UI to start, stop toolhive mcp-optimizer using thv command line
+Exec=/usr/bin/la-toolhive-thv-ui
+Icon=la-toolhive-thv-ui
+Terminal=false
+StartupNotify=true
+StartupWMClass=la-toolhive-thv-ui
+
+# XDG application categories — adjust to match your application.
+# Full list: https://specifications.freedesktop.org/menu-spec/latest/apa.html
+Categories=Utility;
+
+# Desktop environment restrictions.
+# Comment out both lines to show in all DEs.
+# OnlyShowIn=GNOME;XFCE;KDE;
+# NotShowIn=
+
+# Keywords improve discoverability in application launchers.
+# TODO: Add relevant search keywords separated by semicolons.
+Keywords=la-toolhive-thv-ui;

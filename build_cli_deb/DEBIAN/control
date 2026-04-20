@@ -1,0 +1,10 @@
+Package: la-toolhive-thv-ui-cli
+Version: 1.0.0
+Architecture: all
+Maintainer: Gerald Staruiala <value.added.kr@gmail.com>
+Depends: python3
+Section: utils
+Priority: optional
+Description: A user UI to start, stop toolhive mcp-optimizer using thv command line (CLI only)
+ Command-line component of la-toolhive-thv-ui. Suitable for headless servers
+ and environments without a desktop session. No GUI dependencies required.

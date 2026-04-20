@@ -1,0 +1,29 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+
+# XDG autostart entry — placed in /etc/xdg/autostart/ by the package.
+# The desktop environment starts this automatically when the user logs in.
+# Users can disable it per-session via their DE's session/startup settings,
+# or by copying this file to ~/.config/autostart/ and setting Hidden=true.
+#
+# TODO: Replace all APP_* placeholders with real values
+
+Name=la-toolhive-thv-ui Tray
+Comment=Start la-toolhive-thv-ui system tray on login
+Exec=/usr/bin/la-toolhive-thv-ui-tray
+Icon=la-toolhive-thv-ui
+Terminal=false
+StartupNotify=false
+
+# Autostart condition flags
+Hidden=false
+NoDisplay=false
+
+# GNOME-specific: controls whether autostart is active in GNOME sessions
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=0
+
+# KDE-specific: start after the panel is ready so the tray slot is available
+X-KDE-autostart-after=panel
+X-KDE-StartupNotify=false

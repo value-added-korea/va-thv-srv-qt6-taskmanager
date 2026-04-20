@@ -1,0 +1,23 @@
+[Unit]
+Description=la-toolhive-thv-ui user service
+Documentation=man:la-toolhive-thv-ui(1)
+# Start after the graphical session target is reached so the display is ready.
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+# TODO: Replace la-toolhive-thv-ui-tray with the actual executable name.
+ExecStart=/usr/bin/la-toolhive-thv-ui-tray
+# Restart the tray if it crashes, but not if the user explicitly stops it.
+Restart=on-failure
+RestartSec=5
+# Prevent runaway restart loops.
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+# WantedBy graphical-session.target means:
+#   systemctl --user enable la-toolhive-thv-ui.service
+# will start this service whenever a graphical session is active.
+WantedBy=graphical-session.target

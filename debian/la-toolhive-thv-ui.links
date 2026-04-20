@@ -1,0 +1,12 @@
+# ---------------------------------------------------------------------------
+# debhelper symlinks file for the GUI package.
+#
+# TODO: Rename this file to match your package name:
+#   mv debian/la-toolhive-thv-ui.links debian/la-toolhive-thv-ui.links
+#
+# Format: <link target (relative to /)>  <link path (relative to /)>
+# Creates /usr/bin/ entry points pointing to the installed Python modules.
+# ---------------------------------------------------------------------------
+
+usr/share/la-toolhive-thv-ui/app.py       usr/bin/la-toolhive-thv-ui
+usr/share/la-toolhive-thv-ui/tray.py      usr/bin/la-toolhive-thv-ui-tray

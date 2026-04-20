@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------------------
+# debhelper install file for the GUI package.
+#
+# TODO: Rename this file to match your package name:
+#   mv debian/la-toolhive-thv-ui.install debian/la-toolhive-thv-ui.install
+#
+# Format: <source path>  <destination directory (relative to /)>
+# Icons are handled in debian/rules (override_dh_install) because they need
+# to fan out into the hicolor theme tree.
+# ---------------------------------------------------------------------------
+
+# Application Python modules
+src/app.py                              usr/share/la-toolhive-thv-ui/
+src/tray.py                             usr/share/la-toolhive-thv-ui/
+
+# XDG desktop entry (application launcher in Gnome/Xfce/KDE menus)
+src/desktop/app.desktop                 usr/share/applications/
+
+# XDG autostart entry (starts tray on login for all users)
+src/desktop/app-autostart.desktop       etc/xdg/autostart/
+
+# AppStream metainfo and systemd user service are installed in debian/rules.
+src/config/config.ini              etc/va/la-toolhive-thv-ui/

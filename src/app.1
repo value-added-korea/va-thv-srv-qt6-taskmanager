@@ -1,0 +1,63 @@
+.\" Man page for la-toolhive-thv-ui
+.\" TODO: Replace la-toolhive-thv-ui, A user UI to start, stop toolhive mcp-optimizer using thv command line, AUTHOR_NAME, AUTHOR_EMAIL
+.TH la-toolhive-thv-ui 1 "2026-04-13" "1.0.0" "la-toolhive-thv-ui Manual"
+
+.SH NAME
+la-toolhive-thv-ui \- A user UI to start, stop toolhive mcp-optimizer using thv command line
+
+.SH SYNOPSIS
+.B la-toolhive-thv-ui
+[\fIOPTIONS\fR]
+
+.B la-toolhive-thv-ui\-tray
+[\fIOPTIONS\fR]
+
+.SH DESCRIPTION
+.B la-toolhive-thv-ui
+is a GUI application for GNOME, Xfce, and KDE desktop environments.
+It optionally provides a system tray icon and can be started automatically
+on login via XDG autostart or a user systemd service.
+
+.SH OPTIONS
+.TP
+.B \-\-help
+Show help message and exit.
+.TP
+.B \-\-version
+Print version and exit.
+
+.SH FILES
+.TP
+.I /usr/share/la-toolhive-thv-ui/
+Application data directory.
+.TP
+.I /usr/share/applications/la-toolhive-thv-ui.desktop
+XDG desktop entry (application launcher).
+.TP
+.I /etc/xdg/autostart/la-toolhive-thv-ui\-tray.desktop
+XDG autostart entry for the system tray (all users).
+.TP
+.I /usr/lib/systemd/user/la-toolhive-thv-ui.service
+User systemd service unit. Enable with:
+.B systemctl \-\-user enable \-\-now la-toolhive-thv-ui.service
+
+.SH AUTOSTART
+The tray component can be started on login in two ways:
+
+.TP
+.B XDG autostart (all desktop environments)
+Installed to
+.I /etc/xdg/autostart/la-toolhive-thv-ui\-tray.desktop
+and activated automatically by the desktop environment on login.
+
+.TP
+.B systemd user service (systemd-based sessions)
+.EX
+systemctl --user enable --now la-toolhive-thv-ui.service
+.EE
+
+.SH AUTHOR
+AUTHOR_NAME <AUTHOR_EMAIL>
+
+.SH BUGS
+Report bugs at https://github.com/OWNER/la-toolhive-thv-ui/issues
