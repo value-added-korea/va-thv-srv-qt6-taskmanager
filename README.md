@@ -1,4 +1,4 @@
-# VA User Podman Docker Switch (`la-toolhive-thv-ui`)
+# VA thv server simple task manager (`va-thv-srv-qt6-taskmanager`)
 
 TODO
 
